@@ -1,5 +1,7 @@
 package net.dlogic.kryonet.common.response;
 
-public class LoginSuccessResponse {
+import net.dlogic.kryonet.common.entity.User;
 
+public class LoginSuccessResponse {
+	public User myself;
 }
