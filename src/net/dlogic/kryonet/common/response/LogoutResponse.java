@@ -1,5 +1,7 @@
 package net.dlogic.kryonet.common.response;
 
-public class LogoutResponse {
+import net.dlogic.kryonet.common.entity.User;
 
+public class LogoutResponse {
+	public User userLoggingOut;
 }
