@@ -1,12 +1,21 @@
 package net.dlogic.kryonet.common.entity;
 
-import java.util.List;
-
 import com.esotericsoftware.kryonet.Connection;
 
 public class User {
-	public String id;
-	public String username;
-	public Connection connection;
-	public List<Room> joinedRooms;
+	private String username;
+	private Connection connection;
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public Connection getConnection() {
+		return connection;
+	}
+	public void setConnection(Connection connection) {
+		this.connection = connection;
+	}
+	
 }
