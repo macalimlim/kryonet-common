@@ -1,5 +1,6 @@
 package net.dlogic.kryonet.common.manager;
 
+import java.util.Iterator;
 import java.util.Map;
 
 public class BaseManager<V> {
@@ -12,5 +13,8 @@ public class BaseManager<V> {
 	}
 	public V get(int key) {
 		return map.get(key);
+	}
+	public Iterator<V> iterator() {
+		return map.values().iterator();
 	}
 }
