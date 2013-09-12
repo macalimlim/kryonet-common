@@ -4,10 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Room {
+	private int id;
 	private String name;
 	private List<User> userList;
 	public Room() {
 		userList = new ArrayList<User>();
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getId() {
+		return id;
 	}
 	public String getName() {
 		return name;
