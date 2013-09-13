@@ -1,8 +1,7 @@
 package net.dlogic.kryonet.common.request;
 
-import net.dlogic.kryonet.common.entity.Room;
 
 public class PublicMessageRequest {
+	public int targetRoomId;
 	public String message;
-	public Room targetRoom;
 }
