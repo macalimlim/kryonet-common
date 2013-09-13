@@ -1,5 +1,7 @@
 package net.dlogic.kryonet.common.utility;
 
+import net.dlogic.kryonet.common.entity.Room;
+import net.dlogic.kryonet.common.entity.User;
 import net.dlogic.kryonet.common.request.JoinRoomRequest;
 import net.dlogic.kryonet.common.request.LeaveRoomRequest;
 import net.dlogic.kryonet.common.request.LoginRequest;
@@ -21,6 +23,9 @@ import com.esotericsoftware.minlog.Log;
 public class KryonetUtility {
 	public static void registerClasses(EndPoint endpoint) {
 		Log.info("KryonetUtility.registerClasses()");
+		//Entity classes
+		endpoint.getKryo().register(User.class);
+		endpoint.getKryo().register(Room.class);
 		//Request classes
 		endpoint.getKryo().register(JoinRoomRequest.class);
 		endpoint.getKryo().register(LeaveRoomRequest.class);
