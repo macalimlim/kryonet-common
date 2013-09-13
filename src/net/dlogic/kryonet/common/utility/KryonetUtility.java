@@ -16,9 +16,11 @@ import net.dlogic.kryonet.common.response.PrivateMessageResponse;
 import net.dlogic.kryonet.common.response.PublicMessageResponse;
 
 import com.esotericsoftware.kryonet.EndPoint;
+import com.esotericsoftware.minlog.Log;
 
 public class KryonetUtility {
 	public static void registerClasses(EndPoint endpoint) {
+		Log.info("KryonetUtility.registerClasses()");
 		//Request classes
 		endpoint.getKryo().register(JoinRoomRequest.class);
 		endpoint.getKryo().register(LeaveRoomRequest.class);
