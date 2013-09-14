@@ -6,4 +6,5 @@ public class User {
 	public String username;
 	public boolean isPlayer;
 	public boolean isItMe;
+	public boolean isAdmin;
 }
