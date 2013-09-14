@@ -10,12 +10,12 @@ public class RoomManager extends BaseManager<Room> {
 		if (room.isFull()) {
 			throw new RoomManagerException(ErrorMessage.ROOM_IS_FULL);
 		}
-		if (room.containsUser(user)) {
+		if (room.userList.contains(user)) {
 			throw new RoomManagerException(ErrorMessage.USER_ALREADY_IN_ROOM);
 		}
-		room.addUser(user);
+		room.userList.add(user);
 	}
 	public void removeUserToRoom(User user, int roomId) {
-		get(roomId).removeUser(user);
+		get(roomId).userList.remove(user);
 	}
 }
