@@ -1,8 +1,7 @@
 package net.dlogic.kryonet.common.request;
 
-import net.dlogic.kryonet.common.entity.Room;
 
 public class JoinRoomRequest {
-	public Room roomToJoin;
+	public int targetRoomId;
 	public String password;
 }
