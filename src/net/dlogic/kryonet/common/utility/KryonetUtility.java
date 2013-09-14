@@ -43,4 +43,7 @@ public class KryonetUtility {
 		endpoint.getKryo().register(PrivateMessageResponse.class);
 		endpoint.getKryo().register(PublicMessageResponse.class);
 	}
+	public static void registerClass(EndPoint endpoint, Class type) {
+		endpoint.getKryo().register(type);
+	}
 }
