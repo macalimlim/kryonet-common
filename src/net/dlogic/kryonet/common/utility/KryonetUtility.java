@@ -1,13 +1,17 @@
 package net.dlogic.kryonet.common.utility;
 
 import net.dlogic.kryonet.common.entity.Room;
+import net.dlogic.kryonet.common.entity.RoomGroup;
 import net.dlogic.kryonet.common.entity.User;
+import net.dlogic.kryonet.common.request.GetRoomsRequest;
 import net.dlogic.kryonet.common.request.JoinRoomRequest;
 import net.dlogic.kryonet.common.request.LeaveRoomRequest;
 import net.dlogic.kryonet.common.request.LoginRequest;
 import net.dlogic.kryonet.common.request.LogoutRequest;
 import net.dlogic.kryonet.common.request.PrivateMessageRequest;
 import net.dlogic.kryonet.common.request.PublicMessageRequest;
+import net.dlogic.kryonet.common.response.ErrorResponse;
+import net.dlogic.kryonet.common.response.GetRoomsResponse;
 import net.dlogic.kryonet.common.response.JoinRoomFailureResponse;
 import net.dlogic.kryonet.common.response.JoinRoomSuccessResponse;
 import net.dlogic.kryonet.common.response.LeaveRoomResponse;
@@ -26,7 +30,9 @@ public class KryonetUtility {
 		//Entity classes
 		endpoint.getKryo().register(User.class);
 		endpoint.getKryo().register(Room.class);
+		endpoint.getKryo().register(RoomGroup.class);
 		//Request classes
+		endpoint.getKryo().register(GetRoomsRequest.class);
 		endpoint.getKryo().register(JoinRoomRequest.class);
 		endpoint.getKryo().register(LeaveRoomRequest.class);
 		endpoint.getKryo().register(LoginRequest.class);
@@ -34,6 +40,8 @@ public class KryonetUtility {
 		endpoint.getKryo().register(PrivateMessageRequest.class);
 		endpoint.getKryo().register(PublicMessageRequest.class);
 		//Response classes
+		endpoint.getKryo().register(ErrorResponse.class);
+		endpoint.getKryo().register(GetRoomsResponse.class);
 		endpoint.getKryo().register(JoinRoomFailureResponse.class);
 		endpoint.getKryo().register(JoinRoomSuccessResponse.class);
 		endpoint.getKryo().register(LeaveRoomResponse.class);
