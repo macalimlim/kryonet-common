@@ -9,4 +9,5 @@ public class ErrorMessage {
 	public static final String USER_ALREADY_IN_ROOM = "user already in room";
 	public static final String USER_NOT_IN_ROOM = "user not in room";
 	public static final String ROOM_DOESNT_EXIST = "room doesnt exist";
+	public static final String INVALID_USERNAME_ANDOR_PASSWORD = "invalid username and/or password";
 }
