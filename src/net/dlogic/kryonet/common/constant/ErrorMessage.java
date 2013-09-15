@@ -7,4 +7,6 @@ public class ErrorMessage {
 	public static final String CLIENT_NOT_INITIALIZED = "client not initialized";
 	public static final String ROOM_IS_FULL = "room is full";
 	public static final String USER_ALREADY_IN_ROOM = "user already in room";
+	public static final String USER_NOT_IN_ROOM = "user not in room";
+	public static final String ROOM_DOESNT_EXIST = "room doesnt exist";
 }
