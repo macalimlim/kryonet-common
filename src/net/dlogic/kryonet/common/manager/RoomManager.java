@@ -6,7 +6,7 @@ import net.dlogic.kryonet.common.entity.User;
 
 public class RoomManager extends BaseManager<Room> {
 	public void addUserToRoom(User user, int roomId) throws RoomManagerException {
-		Room room = get(roomId);
+		Room room = map.get(roomId);
 		if (room.isFull()) {
 			throw new RoomManagerException(ErrorMessage.ROOM_IS_FULL);
 		}
@@ -16,6 +16,6 @@ public class RoomManager extends BaseManager<Room> {
 		room.userList.add(user);
 	}
 	public void removeUserToRoom(User user, int roomId) {
-		get(roomId).userList.remove(user);
+		map.get(roomId).userList.remove(user);
 	}
 }
