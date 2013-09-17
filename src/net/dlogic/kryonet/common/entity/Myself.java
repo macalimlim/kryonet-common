@@ -1,7 +1,8 @@
 package net.dlogic.kryonet.common.entity;
 
-import java.util.List;
+import net.dlogic.kryonet.common.manager.RoomManager;
+import net.dlogic.kryonet.common.manager.RoomManagerInstance;
 
 public class Myself extends User {
-	public List<Room> joinedRooms;
+	public final RoomManager roomManager = RoomManagerInstance.manager;
 }
