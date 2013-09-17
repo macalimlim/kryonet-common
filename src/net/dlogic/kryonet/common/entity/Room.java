@@ -1,13 +1,13 @@
 package net.dlogic.kryonet.common.entity;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Room {
-	public List<User> userList = new ArrayList<User>();
+	public Map<Integer, User> users = new HashMap<Integer, User>();
 	public String name;
 	public int maxUsers;
 	public boolean isFull() {
-		return maxUsers == userList.size();
+		return maxUsers == users.size();
 	}
 }

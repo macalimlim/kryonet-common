@@ -17,20 +17,20 @@ public class RoomManager extends BaseManager<String, Room> {
 		if (room.isFull()) {
 			throw new RoomManagerException(ErrorMessage.ROOM_IS_FULL);
 		}
-		if (room.userList.contains(user)) {
+		if (room.users.containsKey(user.id)) {
 			throw new RoomManagerException(ErrorMessage.USER_ALREADY_IN_ROOM);
 		}
-		room.userList.add(user);
+		room.users.put(user.id, user);
 	}
 	public void removeUserToRoom(User user, String roomName) throws RoomManagerException {
 		if (!map.containsKey(roomName)) {
 			throw new RoomManagerException(ErrorMessage.ROOM_DOESNT_EXIST);
 		}
 		Room room = map.get(roomName);
-		if (!room.userList.contains(user)) {
+		if (!room.users.containsKey(user.id)) {
 			throw new RoomManagerException(ErrorMessage.USER_NOT_IN_ROOM);
 		}
-		room.userList.remove(user);
+		room.users.remove(user.id);
 	}
 	public Room[] getRooms(String search) {
 		Iterator<Room> it = map.values().iterator();
