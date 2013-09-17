@@ -8,12 +8,12 @@ import net.dlogic.kryonet.common.constant.ErrorMessage;
 import net.dlogic.kryonet.common.entity.Room;
 import net.dlogic.kryonet.common.entity.User;
 
-public class RoomManager extends BaseManager<Room> {
-	public void addUserToRoom(User user, int roomId) throws RoomManagerException {
-		if (!map.containsKey(roomId)) {
+public class RoomManager extends BaseManager<String, Room> {
+	public void addUserToRoom(User user, String roomName) throws RoomManagerException {
+		if (!map.containsKey(roomName)) {
 			throw new RoomManagerException(ErrorMessage.ROOM_DOESNT_EXIST);
 		}
-		Room room = map.get(roomId);
+		Room room = map.get(roomName);
 		if (room.isFull()) {
 			throw new RoomManagerException(ErrorMessage.ROOM_IS_FULL);
 		}
@@ -22,11 +22,11 @@ public class RoomManager extends BaseManager<Room> {
 		}
 		room.userList.add(user);
 	}
-	public void removeUserToRoom(User user, int roomId) throws RoomManagerException {
-		if (!map.containsKey(roomId)) {
+	public void removeUserToRoom(User user, String roomName) throws RoomManagerException {
+		if (!map.containsKey(roomName)) {
 			throw new RoomManagerException(ErrorMessage.ROOM_DOESNT_EXIST);
 		}
-		Room room = map.get(roomId);
+		Room room = map.get(roomName);
 		if (!room.userList.contains(user)) {
 			throw new RoomManagerException(ErrorMessage.USER_NOT_IN_ROOM);
 		}
