@@ -4,6 +4,6 @@ import net.dlogic.kryonet.common.entity.Room;
 import net.dlogic.kryonet.common.entity.User;
 
 public class JoinRoomSuccessResponse {
-	public User joinedUser;
-	public Room joinedRoom;
+	public User userJoined;
+	public Room roomJoined;
 }
