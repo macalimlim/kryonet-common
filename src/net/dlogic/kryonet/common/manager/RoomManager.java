@@ -45,6 +45,6 @@ public class RoomManager extends BaseManager<Room> {
 				}
 			}
 		}
-		return (Room[])roomList.toArray();
+		return roomList.toArray(new Room[roomList.size()]);
 	}
 }
