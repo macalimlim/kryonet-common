@@ -32,6 +32,15 @@ public class RoomManager extends BaseManager<String, Room> {
 		}
 		room.users.remove(user.id);
 	}
+	public boolean isUserJoinedInAnyRoom(User user) {
+		Iterator<Room> it = map.values().iterator();
+		while (it.hasNext()) {
+			if (it.next().users.containsKey(user.id)) {
+				return true;
+			}
+		}
+		return false;
+	}
 	public Room[] getRooms(String search) {
 		Iterator<Room> it = map.values().iterator();
 		List<Room> roomList = new ArrayList<Room>();
