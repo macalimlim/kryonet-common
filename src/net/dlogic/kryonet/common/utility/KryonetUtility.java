@@ -1,6 +1,6 @@
 package net.dlogic.kryonet.common.utility;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 import net.dlogic.kryonet.common.entity.Room;
 import net.dlogic.kryonet.common.entity.RoomGroup;
@@ -30,7 +30,7 @@ public class KryonetUtility {
 	public static void registerClasses(EndPoint endpoint) {
 		Log.info("KryonetUtility.registerClasses()");
 		//JDK classes
-		endpoint.getKryo().register(ArrayList.class);
+		endpoint.getKryo().register(HashMap.class);
 		//Entity classes
 		endpoint.getKryo().register(User.class);
 		endpoint.getKryo().register(Room.class);
