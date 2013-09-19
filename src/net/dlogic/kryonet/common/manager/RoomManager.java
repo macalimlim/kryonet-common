@@ -22,7 +22,7 @@ public class RoomManager extends BaseManager<String, Room> {
 		}
 		room.users.put(user.id, user);
 	}
-	public void removeUserToRoom(User user, String roomName) throws RoomManagerException {
+	public void removeUserFromRoom(User user, String roomName) throws RoomManagerException {
 		if (!map.containsKey(roomName)) {
 			throw new RoomManagerException(ErrorMessage.ROOM_DOESNT_EXIST);
 		}
@@ -31,6 +31,15 @@ public class RoomManager extends BaseManager<String, Room> {
 			throw new RoomManagerException(ErrorMessage.USER_NOT_IN_ROOM);
 		}
 		room.users.remove(user.id);
+	}
+	public void removeUserFromAllRooms(User user) throws RoomManagerException {
+		Iterator<Room> it = map.values().iterator();
+		while (it.hasNext()) {
+			Room room = it.next();
+			if (it.next().users.containsKey(user.id)) {
+				removeUserFromRoom(user, room.name);
+			}
+		}
 	}
 	public boolean isUserJoinedInAnyRoom(User user) {
 		Iterator<Room> it = map.values().iterator();
