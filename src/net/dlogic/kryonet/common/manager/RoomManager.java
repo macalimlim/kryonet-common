@@ -33,16 +33,20 @@ public class RoomManager extends BaseManager<String, Room> {
 		}
 		room.users.remove(user.id);
 	}
-	public void removeUserFromAllRooms(User user) throws RoomManagerException {
-		Iterator<Room> it = map.values().iterator();
-		while (it.hasNext()) {
-			Room room = it.next();
-			if (it.next().users.containsKey(user.id)) {
-				removeUserFromRoom(user, room.name);
+	public void removeUserFromAllRooms(final User user) throws RoomManagerException {
+		forEachRoom(new IForEach<Room>() {
+			public void exec(Room entity) {
+				if (entity.users.containsKey(user.id)) {
+					try {
+						removeUserFromRoom(user, entity.name);
+					} catch (RoomManagerException e) {
+						e.printStackTrace();
+					}
+				}
 			}
-		}
+		});
 	}
-	public boolean isUserJoinedInAnyRoom(User user) {
+	public boolean isUserJoinedInAnyRoom(final User user) {
 		Iterator<Room> it = map.values().iterator();
 		while (it.hasNext()) {
 			if (it.next().users.containsKey(user.id)) {
@@ -51,19 +55,19 @@ public class RoomManager extends BaseManager<String, Room> {
 		}
 		return false;
 	}
-	public Room[] getRooms(String search) {
-		Iterator<Room> it = map.values().iterator();
-		List<Room> roomList = new ArrayList<Room>();
-		while (it.hasNext()) {
-			Room room = it.next();
-			if (search == null) {
-				roomList.add(room);
-			} else {
-				if (room.name.equalsIgnoreCase(search) || room.name.toLowerCase().indexOf(search.toLowerCase()) != -1) {
-					roomList.add(room);
+	public Room[] getRooms(final String search) {
+		final List<Room> roomList = new ArrayList<Room>();
+		forEachRoom(new IForEach<Room>() {
+			public void exec(Room entity) {
+				if (search == null) {
+					roomList.add(entity);
+				} else {
+					if (entity.name.toLowerCase().indexOf(search.toLowerCase()) != -1) {
+						roomList.add(entity);
+					}
 				}
 			}
-		}
+		});
 		return roomList.toArray(new Room[roomList.size()]);
 	}
 	public void forEachRoom(IForEach<Room> forEach) {
