@@ -7,6 +7,7 @@ import java.util.List;
 import net.dlogic.kryonet.common.constant.ErrorMessage;
 import net.dlogic.kryonet.common.entity.Room;
 import net.dlogic.kryonet.common.entity.User;
+import net.dlogic.kryonet.common.utility.IForEach;
 
 public class RoomManager extends BaseManager<String, Room> {
 	public void addUserToRoom(User user, String roomName) throws RoomManagerException {
@@ -64,5 +65,11 @@ public class RoomManager extends BaseManager<String, Room> {
 			}
 		}
 		return roomList.toArray(new Room[roomList.size()]);
+	}
+	public void forEachRoom(IForEach<Room> forEach) {
+		Iterator<Room> it = map.values().iterator();
+		while (it.hasNext()) {
+			forEach.exec(it.next());
+		}
 	}
 }
