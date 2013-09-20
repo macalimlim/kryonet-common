@@ -28,7 +28,7 @@ import com.esotericsoftware.minlog.Log;
 
 public class KryonetUtility {
 	public static void registerClasses(EndPoint endpoint) {
-		Log.info("KryonetUtility.registerClasses()");
+		Log.debug("KryonetUtility.registerClasses()");
 		//JDK classes
 		endpoint.getKryo().register(HashMap.class);
 		//Entity classes
