@@ -9,7 +9,7 @@ import net.dlogic.kryonet.common.utility.IForEach;
 public class Room {
 	public final Map<Integer, User> users = new HashMap<Integer, User>();
 	public String name;
-	public int maxUsers;
+	public int maxUsers = 32;
 	public boolean isFull() {
 		return maxUsers == users.size();
 	}
