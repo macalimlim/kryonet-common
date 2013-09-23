@@ -169,5 +169,7 @@ public class RoomManagerTest {
 		assertTrue(rooms2.length == 1);
 		Room[] rooms3 = manager.getRooms("ghost");
 		assertTrue(rooms3.length == 0);
+		Room[] rooms4 = manager.getRooms(null);
+		assertTrue(manager.map.size() == rooms4.length);
 	}
 }
